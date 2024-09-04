@@ -1,0 +1,52 @@
+/* O valor da função1 retorna 20 e o valor da função global retorna 10, por mais que a função chame a função 1 e tenha a mesma variável
+
+a é GLOBAL */ 
+def funcao1 ():
+    a = 20
+    print("print dentro da funcao1: ")
+    print(a)
+
+a = 10
+funcao1()
+print("print dentro do corpo principal: ")
+print(a)
+
+/* Nesse exemplo irá retornar 20 nos dois PRINT, pois agora foi declarado "a" como GLOBAL na primeira função*/ 
+
+def funcao1 ():
+    global a 
+    a = 20
+    print("print dentro da funcao1: ")
+    print(a)
+
+a = 10
+funcao1()
+print("print dentro do corpo principal: ")
+print(a)
+
+/* visualizar números com muitos dígitos  underline (_), para O tipo int conjunto dos inteiros (Z) */
+type(1_000_000) 
+<class 'int'>
+
+/*float é usado para elementos do conjunto dos reais (R), devemos usar o ponto e não virgula*/
+type(50.0)
+<class 'float'>
+
+/*Ao usar a vírgula como separador*/
+50, 0
+(50, 0)
+
+/* Divisão inteira = "//" */
+
+/* Divisão com resto = "%" */
+
+/* complex para manipular números complexos na forma x + yj*/
+r = complex(2,5)
+r
+(2+5j)
+
+w=2+5j 
+type (w)
+<class 'complex'>
+
+/* r.conjugate() retorna o conjugado do número complexo r, em que a parte real é mantida e a parte imaginária tem o seu sinal trocado.*/
