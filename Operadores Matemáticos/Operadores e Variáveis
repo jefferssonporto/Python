@@ -76,3 +76,44 @@ Exponenciação	**
 ==	Igual
 !=	Não igual
 */ 
+
+/* UPPER Transforma todas as letras em maiúsculas*/
+curso = 'Ensino a Distância'
+curso.upper()
+'ENSINO A DISTÂNCIA'
+
+/* LOWER letras minusculas */
+curso.lower()
+'ensino a distância'
+
+/* SPLIT() Quebra a string em substrings.*/ 
+curso.split()
+['Ensino', 'a', 'Distância']
+
+/* x in s -	True se x for um subconjunto de s
+x not in s	- False se x for um subconjunto de s
+s + t	- Concatenação de s e t
+n*s -	Concatenação de n cópias de s
+s[i] -	Caractere de índice i em s
+len(s) -	Comprimento de s
+min(s)	- Menor item de s
+max(s)	- Maior item de s */
+
+/* Dicionários */
+{<chave 1>:<valor 1>, <chave 2>:<valor 2>, ..., <chave i>:<valor i>}
+telefones = {'1': [ "Humberto", "Henrique", "5555-5555"], '2': ["João", "Silva", "5555-5555"]}
+telefones['1'] ['Humberto', 'Henrique', '5555-5555']
+telefones ['2'] ['João', 'Silva', '5555-5555']
+
+/* 
+[expressões ...]	- Definição de lista
+x[ ], x[índice : índice]	- Operador de indexação
+**	- Exponenciação
++x, -x	- Sinal de positivo e negativo
+*, /, //, %	- Produto, divisão, divisão inteira, resto
++, -	- Soma, subtração
+in, not in, <, <=, >, >=, <>, !=, ==	- Comparações, inclusive a ocorrência em listas
+not x	- Booleano NOT (não)
+and	- Booleano AND (e)
+or	- Booleano OR (ou)
+
