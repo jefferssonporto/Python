@@ -50,3 +50,29 @@ type (w)
 <class 'complex'>
 
 /* r.conjugate() retorna o conjugado do número complexo r, em que a parte real é mantida e a parte imaginária tem o seu sinal trocado.*/
+
+*/  tipo bool, expressões booleanas.True ou False*/
+2>3
+False
+2<3
+True
+*/ Operador NOT / True, not(valor) terá o valor False*/
+not (2<3)
+False
+
+*/ Simbolos matematicos
+Soma	+ 
+Subtração	-
+Multiplicação	*
+Divisão	/
+Divisão inteira	//
+Resto na divisão inteira	%
+Valor absoluto	abs(parâmetro)
+Exponenciação	**
+<	Menor que
+<=	Menor ou igual a
+>	Maior que
+>=	Maior ou igual a
+==	Igual
+!=	Não igual
+*/ 
