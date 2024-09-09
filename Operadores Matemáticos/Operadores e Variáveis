@@ -115,5 +115,38 @@ x[ ], x[índice : índice]	- Operador de indexação
 in, not in, <, <=, >, >=, <>, !=, ==	- Comparações, inclusive a ocorrência em listas
 not x	- Booleano NOT (não)
 and	- Booleano AND (e)
-or	- Booleano OR (ou)
+or	- Booleano OR (ou) */
 
+ /* Realizar operações algébricas função eval() em conjunto com a input(). */
+numero = eval(input('Entre com um numero inteiro: ')) 
+numero = numero +2 
+print(numero)
+
+ /* Exemplo IMC (índice de massa corpórea)  */
+ peso = eval(input('Entre com seu peso: '))
+ altura = eval(input('Entre com sua altura: '))
+ imc = peso/altura**2
+ print('IMC= ', imc)
+
+  /* Saída formatada de dados: função print() com o separador exemplos: */
+  print(str(hora) + ' : ' + str(minutos) + ' : ' + str(segundos))
+print('{} : {} : {} '.format(hora, minutos, segundos))
+print(f'{hora} : {minutos} : {segundos} ')
+
+/* especificar a largura de campo para exibir um inteiro */
+'{:4}, {:5}.format(10,100)' 10, 100 /* 4 espaços com {:4} (2 foram ocupados e 2 ficaram em branco), e que a segunda variável deveria ser impressa com 5 espaços com {:5} (3 foram ocupados e 2 ficaram em branco).*/
+
+/*O método format() para imprimir valores de ponto flutuante com a precisão definida */
+'{:8.5}'.format(10/3) '3.333'
+/*o usar {:8.5}, estamos determinando que a impressão será com 8 espaços, mas apenas 5 serão utilizados.*/
+
+/*Impressão de sequências printf() /  função print() passando como parâmetro a sequência.*/
+seq = [ 0,1,2]
+print(seq)
+[0,1,2]
+
+/* string como lida da direita para a esquerda utilizar [: : -1] */
+print(str[::-1])
+dlroW olleh
+print(str[8:2:-1])
+row ol
