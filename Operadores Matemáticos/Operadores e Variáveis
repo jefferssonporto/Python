@@ -1,6 +1,7 @@
-/* O valor da função1 retorna 20 e o valor da função global retorna 10, por mais que a função chame a função 1 e tenha a mesma variável
+# O valor da função1 retorna 20 e o valor da função global retorna 10, por mais que a função chame a função 1 e tenha a mesma variável
 
-a é GLOBAL */ 
+a é GLOBAL 
+
 def funcao1 ():
     a = 20
     print("print dentro da funcao1: ")
@@ -11,7 +12,7 @@ funcao1()
 print("print dentro do corpo principal: ")
 print(a)
 
-/* Nesse exemplo irá retornar 20 nos dois PRINT, pois agora foi declarado "a" como GLOBAL na primeira função*/ 
+# Nesse exemplo irá retornar 20 nos dois PRINT, pois agora foi declarado "a" como GLOBAL na primeira função
 
 def funcao1 ():
     global a 
@@ -24,23 +25,23 @@ funcao1()
 print("print dentro do corpo principal: ")
 print(a)
 
-/* visualizar números com muitos dígitos  underline (_), para O tipo int conjunto dos inteiros (Z) */
+#visualizar números com muitos dígitos  underline (_), para O tipo int conjunto dos inteiros (Z) 
 type(1_000_000) 
 <class 'int'>
 
-/*float é usado para elementos do conjunto dos reais (R), devemos usar o ponto e não virgula*/
+#float é usado para elementos do conjunto dos reais (R), devemos usar o ponto e não virgula
 type(50.0)
 <class 'float'>
 
-/*Ao usar a vírgula como separador*/
+# Ao usar a vírgula como separador 
 50, 0
 (50, 0)
 
-/* Divisão inteira = "//" */
+# Divisão inteira = "// 
 
-/* Divisão com resto = "%" */
+# Divisão com resto = "%" 
 
-/* complex para manipular números complexos na forma x + yj*/
+#complex para manipular números complexos na forma x + yj 
 r = complex(2,5)
 r
 (2+5j)
@@ -49,18 +50,18 @@ w=2+5j
 type (w)
 <class 'complex'>
 
-/* r.conjugate() retorna o conjugado do número complexo r, em que a parte real é mantida e a parte imaginária tem o seu sinal trocado.*/
+#r.conjugate() retorna o conjugado do número complexo r, em que a parte real é mantida e a parte imaginária tem o seu sinal trocado.
 
-*/  tipo bool, expressões booleanas.True ou False*/
+#tipo bool, expressões booleanas.True ou False 
 2>3
 False
 2<3
 True
-*/ Operador NOT / True, not(valor) terá o valor False*/
+#Operador NOT / True, not(valor) terá o valor False 
 not (2<3)
 False
 
-*/ Simbolos matematicos
+# Simbolos matematicos
 Soma	+ 
 Subtração	-
 Multiplicação	*
@@ -75,78 +76,115 @@ Exponenciação	**
 >=	Maior ou igual a
 ==	Igual
 !=	Não igual
-*/ 
 
-/* UPPER Transforma todas as letras em maiúsculas*/
+
+# UPPER Transforma todas as letras em maiúsculas
 curso = 'Ensino a Distância'
 curso.upper()
 'ENSINO A DISTÂNCIA'
 
-/* LOWER letras minusculas */
+#LOWER letras minusculas 
 curso.lower()
 'ensino a distância'
 
-/* SPLIT() Quebra a string em substrings.*/ 
+# SPLIT() Quebra a string em substrings. 
 curso.split()
 ['Ensino', 'a', 'Distância']
 
-/* x in s -	True se x for um subconjunto de s
-x not in s	- False se x for um subconjunto de s
-s + t	- Concatenação de s e t
-n*s -	Concatenação de n cópias de s
-s[i] -	Caractere de índice i em s
-len(s) -	Comprimento de s
-min(s)	- Menor item de s
-max(s)	- Maior item de s */
+# x in s -	True se x for um subconjunto de s
+#x not in s	- False se x for um subconjunto de s
+#s + t	- Concatenação de s e t
+#n*s -	Concatenação de n cópias de s
+#s[i] -	Caractere de índice i em s
+#len(s) -	Comprimento de s
+#min(s)	- Menor item de s
+#max(s)	- Maior item de s 
 
-/* Dicionários */
+# Dicionários 
 {<chave 1>:<valor 1>, <chave 2>:<valor 2>, ..., <chave i>:<valor i>}
 telefones = {'1': [ "Humberto", "Henrique", "5555-5555"], '2': ["João", "Silva", "5555-5555"]}
 telefones['1'] ['Humberto', 'Henrique', '5555-5555']
 telefones ['2'] ['João', 'Silva', '5555-5555']
 
-/* 
-[expressões ...]	- Definição de lista
-x[ ], x[índice : índice]	- Operador de indexação
-**	- Exponenciação
-+x, -x	- Sinal de positivo e negativo
-*, /, //, %	- Produto, divisão, divisão inteira, resto
-+, -	- Soma, subtração
-in, not in, <, <=, >, >=, <>, !=, ==	- Comparações, inclusive a ocorrência em listas
-not x	- Booleano NOT (não)
-and	- Booleano AND (e)
-or	- Booleano OR (ou) */
 
- /* Realizar operações algébricas função eval() em conjunto com a input(). */
+#[expressões ...]	- Definição de lista
+#x[ ], x[índice : índice]	- Operador de indexação
+#**	- Exponenciação
+#+x, -x	- Sinal de positivo e negativo
+#*, /, //, %	- Produto, divisão, divisão inteira, resto
+#+, -	- Soma, subtração
+#in, not in, <, <=, >, >=, <>, !=, ==	- Comparações, inclusive a ocorrência em listas
+#not x	- Booleano NOT (não)
+#and	- Booleano AND (e)
+#or	- Booleano OR (ou) 
+#Realizar operações algébricas função eval() em conjunto com a input(). """
 numero = eval(input('Entre com um numero inteiro: ')) 
 numero = numero +2 
 print(numero)
 
- /* Exemplo IMC (índice de massa corpórea)  */
+#Exemplo IMC (índice de massa corpórea)  """ 
  peso = eval(input('Entre com seu peso: '))
  altura = eval(input('Entre com sua altura: '))
  imc = peso/altura**2
  print('IMC= ', imc)
 
-  /* Saída formatada de dados: função print() com o separador exemplos: */
+#Saída formatada de dados: função print() com o separador exemplos: """"
   print(str(hora) + ' : ' + str(minutos) + ' : ' + str(segundos))
 print('{} : {} : {} '.format(hora, minutos, segundos))
 print(f'{hora} : {minutos} : {segundos} ')
 
-/* especificar a largura de campo para exibir um inteiro */
-'{:4}, {:5}.format(10,100)' 10, 100 /* 4 espaços com {:4} (2 foram ocupados e 2 ficaram em branco), e que a segunda variável deveria ser impressa com 5 espaços com {:5} (3 foram ocupados e 2 ficaram em branco).*/
+#especificar a largura de campo para exibir um inteiro """ 
+'{:4}, {:5}.format(10,100)' 10, 100 # 4 espaços com {:4} (2 foram ocupados e 2 ficaram em branco), e que a segunda variável deveria ser impressa com 5 espaços com {:5} (3 foram ocupados e 2 ficaram em branco).
 
-/*O método format() para imprimir valores de ponto flutuante com a precisão definida */
+#O método format() para imprimir valores de ponto flutuante com a precisão definida  
 '{:8.5}'.format(10/3) '3.333'
-/*o usar {:8.5}, estamos determinando que a impressão será com 8 espaços, mas apenas 5 serão utilizados.*/
+# o usar {:8.5}, estamos determinando que a impressão será com 8 espaços, mas apenas 5 serão utilizados.
 
-/*Impressão de sequências printf() /  função print() passando como parâmetro a sequência.*/
+#Impressão de sequências printf() /  função print() passando como parâmetro a sequência.
 seq = [ 0,1,2]
 print(seq)
 [0,1,2]
 
-/* string como lida da direita para a esquerda utilizar [: : -1] */
+#string como lida da direita para a esquerda utilizar [: : -1] 
 print(str[::-1])
 dlroW olleh
 print(str[8:2:-1])
 row ol
+
+#Saida formatada de Dados com variaveis
+
+# Todo Input é tratado como String
+
+X = input("Entre com seu nome: ")
+X = " O nome informado foi " + X
+print(X)
+Run: Entre com seu nome: Fulanodetal
+O nome informado foi Fulanodetal
+
+X = input("Entre com seu nome: ")
+print('O nome informado foi {}'.format(X))
+Run: Entre com seu nome: Fulanodetal
+O nome informado foi Fulanodetal
+
+#Com duas variáveis
+nomepai = input("Entre com seu nome: ")
+nomefilha = input("Entre com o nome da filha: ")
+print('O pai de {} é {}'.format(nomefilha,nomepai))
+Entre com seu nome: fulano
+Entre com o nome da filha: beltrano
+O pai de beltrano é fulano
+
+#Outra forma
+nomepai = input("Entre com seu nome: ")
+nomefilha = input("Entre com o nome da filha: ")
+print(f'O pai de {nomefilha} é {nomepai}')
+Entre com seu nome: fulano
+Entre com o nome da filha: beltrano
+O pai de beltrano é fulano
+
+#Nos caso de numero inteiro utilizar Eval
+x = eval(input("Entre com a sua idade: "))
+X +=1
+print(X)
+
+
