@@ -392,3 +392,65 @@ IndexError  -  	Levantado quando um índice sequencial está fora do intervalo d
 NameError   -	Levantado quando se tenta avaliar um identificador (nome) não atribuído.
 TypeError   -	Levantado quando uma operação da função é aplicada a um objeto do tipo errado.
 ValueError  -	Levantado quando a operação ou função tem um argumento com o tipo correto, mas valor incorreto.
+
+__init__() serve para inicialização de classes: 
+class Conta:
+def__init__(self, numero, cpf, nomeTitular, saldo):
+self.numero = numero
+self.cpf = cpf
+self.nomeTitular = nomeTitular
+self.saldo = saldo
+
+classe sem um método construtor:
+class A():
+def f():
+print ‘foo’
+
+método decorator @property:
+@property
+def saldo(self):
+return self._saldo
+
+Os métodos decorados com a property @setter forçam que todas alterações de valor dos atributos privados devem passar por esses métodos.
+@saldo.setter
+def saldo(self, saldo):
+if (self.saldo < 0):
+print(“saldo inválido”)
+else:
+self._saldo = saldo 
+
+método como estático, deve-se usar o decorator @classmethod
+Em (1), é criado o parâmetro cls como referência para classe.
+Em (2), é retornado o valor do atributo de classe _total_circulos.
+class Circulo:
+_total_circulos = 0
+def__init__(self,pontox, pontoy, raio):
+self.pontox = pontox
+self.pontoy = pontoy
+self.raio = raio
+type(self)._total_circulos +=1
+@classmethod
+def get total_circulos(cls): (1)
+return cls.total_circulos (2)
+
+métodos estáticos 
+ import math
+class Math:
+@staticmethod
+def sqrt(x):
+return math.sqrt(x)
+Math.sqrt(20)
+4.47213595499958
+
+Os dois underscores antes do método indicam que ele é privado:
+método geralsaldo como privado
+  
+class Circulo:
+def__init__(self,clientes,numero,saldo):
+self.clientes = clientes
+self.numero = numero
+self.saldo = saldo
+def __gerarsaldo(self):
+print(f"numero: {self.numero}\n saldo:{self.saldo}")
+
+
