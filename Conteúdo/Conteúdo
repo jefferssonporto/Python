@@ -736,3 +736,38 @@ Antes de aguardar o termino! 73844
     Termino thread 5
     Após aguardar o termino! 10000000 
     Process finished with exit code 0
+
+Variável do tipo inteiro e compartilhá-la entre os processos. Essa variável fará o papel de um contador e a função paralelizada vai incrementá-la.
+
+from threading import Thread
+    from multiprocessing import Process, Value 
+    def funcao_a(indice, cont):
+    for i in range(100000):
+    with cont.get_lock():
+    cont.value += 1
+    print("Termino processo ", indice) 
+    if __name__ == '__main__':
+    contador = Value('i', 0)  ##Declaramos uma variável chamada contador utilizando o construtor da classe value, onde passamos como primeiro argumento um caractere com o tipo da variável compartilhada (‘i’ 🡪 inteiro) e seu valor inicial (0)
+    tarefas = []
+    for indice in range(10):
+    tarefa = Process(target=funcao_a, args=(indice, contador)) ## parâmetro indice da funcao_a recebe o valor da variável índice e o parâmetro cont recebe uma referência para a variável contador
+    tarefas.append(tarefa)
+    tarefa.start()
+    print("Antes de aguardar o termino!", contador.value) 
+    for tarefa in tarefas:
+    tarefa.join()
+    print("Após aguardar o termino!", contador.value)
+
+Antes de aguardar o termino! 0
+    Termino processo 2
+    Termino processo 1
+    Termino processo 0
+    Termino processo 3
+    Termino processo 4
+    Termino processo 5  
+    Termino processo Termino processo 7
+    6
+    Termino processo 8
+    Termino processo 9
+    Após aguardar o termino! 1000000
+    Process finished with exit code 0
