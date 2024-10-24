@@ -454,3 +454,132 @@ def __gerarsaldo(self):
 print(f"numero: {self.numero}\n saldo:{self.saldo}")
 
 
+        Instanciação de objetos
+                                            Linguagens
+                                        Java	C++	    Python
+Instanciação de objetos                 X        X         X
+Construtores de objetos                 X        X         X
+Modificadores de acesso atributos       X        X         X(*)
+Modificadores de acesso métodos         X        X         X
+Herança múltipla                                 X         X           
+Classes informais                                X         X 
+Tipos primitivos                        X        X 
+Interfaces                              X        X 
+Sobrecarga de métodos                   X        X 
+
+Exemplo funções de ordem superior (higher order function).
+
+def multiplicar_por(multiplicador):
+    def multi(multiplicando):
+    return multiplicando * multiplicador
+    return multi
+    multiplicar_por_10 = multiplicar_por(10)
+    print(multiplicar_por_10(1))
+    print(multiplicar_por_10(2)) 
+    multiplicar_por_5 = multiplicar_por(5)
+    print(multiplicar_por_5(1))
+    print(multiplicar_por_5(2))
+
+
+ Lista valores como argumento para a função altera_lista
+ 
+ valores = [10, 20, 30] 
+    def altera_lista(lista):
+    lista[2] = lista[2] + 10
+    return lista
+    print("Nova lista", altera_lista(valores))
+    print("Nova lista", altera_lista(valores))
+
+valores = [10, 20, 30] 
+    def altera_lista(lista):
+    nova_lista = list(lista)
+    nova_lista[2] = nova_lista[2] + 10
+    return nova_lista
+    print("Nova lista", altera_lista(valores))
+    print("Nova lista", altera_lista(valores))
+
+Funções puras - dependem apenas dos parâmetros de entrada para gerar uma saída
+    
+    valor = 20
+    def multiplica(fator):
+    global valor
+    valor = valor * fator
+    print("Resultado", valor)
+    multiplica(3)
+    multiplica(3)
+
+valor = 20
+    def multiplica(valor, fator):
+    valor = valor * fator
+    return valor 
+    print("Resultado", multiplica(valor, 3))
+    print("Resultado", multiplica(valor, 3))
+
+Funções lambda - funções anônimas / lambda argumentos: expressão
+
+def multiplicar_por(multiplicador):
+    return lambda multiplicando: multiplicando * multiplicador
+    multiplicar_por_10 = multiplicar_por(10)
+    print(multiplicar_por_10(1))
+    print(multiplicar_por_10(2))    
+    multiplicar_por_5 = multiplicar_por(5)
+    print(multiplicar_por_5(1))
+    print(multiplicar_por_5(2))
+
+    def multiplicar_por(multiplicador):
+    def multi(multiplicando):
+    return multiplicando * multiplicador
+    return multi
+    multiplicar_por_10 = multiplicar_por(10)
+    print(multiplicar_por_10(1))
+    print(multiplicar_por_10(2))
+    multiplicar_por_5 = multiplicar_por(5)
+    print(multiplicar_por_5(1))
+    print(multiplicar_por_5(2))
+
+função map é pura e de ordem superior - map(função, iterável1, iterável2...)
+
+lista = [1, 2, 3, 4, 5] 
+    def triplica_itens(iterable): ## recebe um iterável como parâmetro
+    lista_aux = []   ## cria uma lista auxiliar para garantir imutabilidade
+    for item in iterable: ## percorre os itens do iterável passado como parâmetro 
+    lista_aux.append(item*3) ## adiciona os itens triplicados à lista auxiliar
+    return lista_aux  ##retorna a lista auxiliar
+    nova_lista = triplica_itens(lista) ##Essa função é chamada com o argumento lista 
+    print(nova_lista)  ##resultado é impresso 
+
+    lista = [1, 2, 3, 4, 5]
+    def triplica(item): ## triplica e retorna o item passado como parâmetro 
+    return item * 3  ## triplica e retorna o item passado como parâmetro 
+    nova_lista = map(triplica, lista) ##É utilizada, assim como a variável lista, como argumentos para a função map 
+    print(list(nova_lista)) ##O resultado da função map é armazenado na variável nova_lista
+
+    lista = [1, 2, 3, 4, 5]
+    nova_lista = map(lambda item: item * 3, lista)
+    print(list(nova_lista))
+
+Filter - utilizada para filtrar elementos de um iterável (lista, tupla, dicionários etc.)
+sintaxe - filter(função, iterável)
+
+lista = [1, 2, 3, 4, 5]
+    def impares(iterable): ##parâmetro
+    lista_aux = [] ## lista auxiliar para garantir imutabilidade
+    for item in iterable: ## percorre os itens do iterável passados como parâmetros
+    if item % 2 != 0: ## adiciona os itens ímpares à lista auxiliar
+    lista_aux.append(item) ## adiciona os itens ímpares à lista auxiliar
+    return lista_aux  ## retorna a lista auxiliar
+    nova_lista = impares(lista)
+    print(nova_lista)
+
+lista = [1, 2, 3, 4, 5]
+    def impar(item): ##retorna true se o item passado como parâmetro é ímpar ou false caso contrário
+    return item % 2 != 0    
+    nova_lista = filter(impar, lista)
+    print(list(nova_lista))
+
+lista = [1, 2, 3, 4, 5]
+    nova_lista = filter(lambda item: item % 2 != 0, lista)
+    print(list(nova_lista))
+
+
+
