@@ -480,6 +480,23 @@ def multiplicar_por(multiplicador):
     print(multiplicar_por_5(1))
     print(multiplicar_por_5(2))
 
+Exemplo que calcula o valor de um taximetro:
+def taximetro(distancia):
+    def calculaMult():
+        if distancia < 5:
+            return 1.2
+        else:
+            return 1
+    multiplicador = calculaMult()
+    largada = 3
+    km_rodado = 2
+    valor = (largada + distancia * km_rodado) * multiplicador
+    return valor
+
+
+dist = eval(input("Entre com a distancia a ser percorrida em km: "))
+pagamento = taximetro(dist)
+print(f'O valor a pagar é R$ {pagamento}')
 
  Lista valores como argumento para a função altera_lista
  
@@ -771,3 +788,235 @@ Antes de aguardar o termino! 0
     Termino processo 9
     Após aguardar o termino! 1000000
     Process finished with exit code 0
+
+Utilizando o framework  Flask. 
+Aplicação web básica que retorna “Olá, mundo.” script é flask1.py http://127.0.0.1:5000 :
+    from flask import Flask
+app = Flask(__name__) 
+@app.route('/')
+def ola_mundo():
+return "Olá, mundo."
+if __name__ == '__main__':
+app.run()
+Serving Flask app "principal" (lazy loading)
+Enviroment: production
+WARNING: This is a development server. Do not use it in a production deployment.
+Use a production WSGI server instead.
+Debug mode: off
+Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+
+Alterando http://127.0.0.1:5000 por http://127.0.0.1:5000/ola : 
+from flask import Flask
+app = Flask(__name__)
+@app.route('/ola')
+def ola_mundo():
+return "Olá, mundo."
+if __name__ == '__main__':
+app.run()
+
+Rota para a URL raiz da aplicação (@app.route(‘/’)).
+from flask import Flask 
+app = Flask(__name__) 
+@app.route('/')
+def index():
+return "Página principal."
+@app.route('/ola')
+def ola_mundo():
+return "Olá, mundo."
+if __name__ == '__main__':
+app.run()
+
+Mudando a rota da função ola_mundo de forma que seja possível capturar e retornar o nome passado como parâmetro.
+from flask import Flask
+app = Flask(__name__)
+@app.route('/')
+def index():
+return "Página principal."
+@app.route('/ola/<nome>')
+def ola_mundo(nome):
+return "Olá, " + nome
+if __name__ == '__main__':
+app.run()
+
+Rota deve responder às requisições do tipo GET e POST.
+from flask import Flask 
+app = Flask(__name__)
+app.debug = True
+@app.route('/')
+def index():
+return "Página principal."
+@app.route('/ola/')
+@app.route('/ola/<nome>')
+def ola_mundo(nome):
+return "Olá, " + nome
+@app.route('/logar', methods=['GET', 'POST'])
+def logar():
+if request.method == 'POST':
+return "Recebeu post! Fazer login!"
+else:
+return "Recebeu get! Exibir FORM de login."
+if __name__ == '__main__':
+app.run()
+##Para verificar o método que foi utilizado na requisição, usamos o atributo method do objeto request, que retorna uma das strings: GET, POST, PUT ou DELETE.
+##As aplicações web disponibilizam diversos métodos para acessar uma URL: GET, POST, PUT e DELETE. Por padrão, as rotas do Flask somente respondem às requisições GET. Para responder a outros métodos, é necessário explicitar, na rota, quais métodos serão aceitos.
+Expressões: {{ ... }} - Serve para escrever algo no modelo, como o valor de uma variável.
+Declarações: {% ... %} - Utilizado em laços e condicionantes, por exemplo.
+
+Para passar a variável nome para o HTML, precisamos chamar a função render_template com um parâmetro a mais
+from flask import Flask, render_template 
+app = Flask(__name__) 
+@app.route('/')
+def index():
+return render_template('indice.html') 
+@app.route('/ola/')
+@app.route('/ola/<nome>')
+def ola_mundo(nome="mundo"):
+return "Olá, ", nome_recebido = nome 
+if __name__ == '__main__':
+app.run()
+   Codigo 22 - Modelo ola.html
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Olá, {{ nome_recebido }}</h1>
+</body>
+</html>
+
+Neste exemplo, vamos utilizar uma série histórica fictícia de casos de dengue de uma determinada cidade e, com o auxílio 
+do algoritmo supervisionado de regressão linear, predizer casos futuros.
+
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+import pandas
+############# Pré-processamento ###############
+# Coleta e Integração
+arquivo = pandas.read_csv('dados_dengue.csv')
+anos = arquivo[['ano']]
+casos = arquivo[['casos']]
+############## Mineração #################
+regr = LinearRegression()
+regr.fit(X=anos, y=casos)
+ano_futuro = [[2018]]
+casos_2018 = regr.predict(ano_futuro)
+print('Casos previstos para 2018 ->', int(casos_2018))
+############ Pós-processamento ################
+plt.scatter(anos, casos, color='black')
+plt.scatter(ano_futuro, casos_2018, color='red')
+plt.plot(anos, regr.predict(anos), color='blue')
+plt.xlabel('Anos')
+plt.ylabel('Casos de dengue')
+plt.xticks([2018])
+plt.yticks([int(casos_2018)]) 
+plt.show()
+   Codigo 23 - Dados_dengue.csv
+ano,casos
+2017,450
+2016,538
+2015,269
+2014,56
+2013,165
+2012,27
+2011,156
+2010,102
+2009,86
+2008,42
+2007,79
+2006,65
+2005,58
+2004,39
+2003,23
+2002,15
+2001,28
+## Saída do script regressao.py
+1C:\Users\fotoli\PycharmProjects\estac
+2Casos previstos para 2018 -> 330
+##Após importar os módulos necessários, vamos passar para a primeira etapa do KDD, o pré-processamento. Neste caso simples, vamos realizar apenas a coleta e integração que, na prática, é carregar a planilha dentro do programa.
+##Para isso, utilizamos a função read_csv da biblioteca Pandas, passando como parâmetro o nome do arquivo (linha 7).
+
+ Dois algoritmos de classificação, árvore de decisão e máquina de vetor suporte (suport vector machine – SVM) 
+ para montar dois classificadores de flores de íris. 
+##No total, são quatro características para cada amostra, sendo elas o comprimento e a largura, em centímetros, das sépalas e pétalas de rosas.
+from sklearn.datasets import load_iris, fetch_kddcup99
+from sklearn.metrics import accuracy_score
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier, export_text, plot_tree
+from sklearn.svm import SVC 
+################## Pré-processamento ###################
+# Coleta e Integração
+iris = load_iris()
+caracteristicas = iris.data
+rotulos = iris.target
+print("Caracteristicas:\n", caracteristicas[:2])
+print("Rótulos:\n", rotulos[:2])
+print('########################################################')
+# Partição dos dados
+carac_treino, carac_teste, rot_treino, rot_teste = train_test_split(caracteristicas, rotulos)
+################### Mineração ##################### 
+############---------- Arvore de Decisão -----------############
+arvore = DecisionTreeClassifier(max_depth=2)
+arvore.fit(X=carac_treino, y=rot_treino)
+rot_preditos = arvore.predict(carac_teste)
+acuracia_arvore = accuracy_score(rot_teste, rot_preditos)
+############-------- Máquina de Vetor Suporte ------############
+clf = SVC()
+clf.fit(X=carac_treino, y=rot_treino) 
+rot_preditos_svm = clf.predict(carac_teste)
+acuracia_svm = accuracy_score(rot_teste, rot_preditos_svm)
+################ Pós-processamento ####################
+print("Acurácia Árvore de Decisão:", round(acuracia_arvore, 5))
+print("Acurácia SVM:", round(acuracia_svm, 5))
+print('########################################################') 
+r = export_text(arvore, feature_names=iris['feature_names'])
+print("Estrutura da árvore")
+print(r)
+##Saída do script 
+Caracteristicas:
+[[5.1 3.5 1.4 0.2]
+[4.9 3.  1.4 0.2]]
+Rótulos:
+[0 0]
+###########################################
+Acurácia Árvore de Decisão: 0.92105
+Acurácia SVM: 0.97368
+###########################################
+Estrutura da árvore
+|--- petal width (cm) <= 0.80
+|   |--- class: 0
+|--- petal width (cm) > 0.80
+|   |--- petal width (cm) <= 1.75
+|   |   |--- class: 1
+|--- petal width (cm) > 1.75
+|   |   |--- class: 2
+Process finished with exit code 0
+
+##Na etapa de mineração de dados, vamos treinar o algoritmo de agrupamento K-medias com as características das flores. Para isso, criamos uma instância da classe KMeans passando como parâmetro o número de grupos (ou classes) que desejamos que o algoritmo identifique (n_clusters) (linha 13).
+
+Podemos utilizar o atributo labels_ do objeto grupos para retornar uma lista com o índice do grupo ao qual cada amostra pertence. Como o número de grupos (n_clusters) é 3, o índice varia entre: 0, 1 e 2.
+
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+from sklearn.cluster import KMeans
+from sklearn.datasets import load_iris
+################## Pré-processamento ###################
+# Coleta e Integração
+iris = load_iris()
+caracteristicas = iris.data
+################### Mineração #####################
+grupos = KMeans(n_clusters=3)
+grupos.fit(X=caracteristicas)
+labels = grupos.labels_ # indice do grupo ao qual cada amostra pertence
+################ Pós-processamento ####################
+fig = plt.figure(1)
+ax = Axes3D(fig)
+ax.set_xlabel('Comprimento Sépala')
+ax.set_ylabel('Largura Sépala')
+ax.set_zlabel('Comprimento Pétala')
+ax.scatter(caracteristicas[:, 0], caracteristicas[:, 1], caracteristicas[:, 2], c=grupos.labels_, edgecolor='k')
+target = iris.target
+fig = plt.figure(2)
+ax = Axes3D(fig)
+ax.set_xlabel('Comprimento Sépala')
+ax.set_ylabel('Largura Sépala')
+ax.set_zlabel('Comprimento Pétala')
+ax.scatter(caracteristicas[:, 0], caracteristicas[:, 1], caracteristicas[:, 2], c=target, edgecolor='k')
+plt.show()
